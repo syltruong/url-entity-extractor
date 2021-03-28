@@ -3,6 +3,7 @@ from typing import Optional
 
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
+import sqlite3
 
 from src.utils import get_url_body, InvalidUrlException, extract_entities
 from src.database import create_connection, create_table, insert_new_log, list_all_lines, DB_PATH
@@ -35,7 +36,10 @@ def extract(source: Source):
 @app.get("/all-extracted")
 def all_extracted():
 
-    all_lines = list_all_lines(db_path=DB_PATH)
+    try:
+        all_lines = list_all_lines(db_path=DB_PATH)
+    except sqlite3.OperationalError:
+        all_lines = []
 
     ret = [
         {
