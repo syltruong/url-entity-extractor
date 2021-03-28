@@ -1,7 +1,9 @@
 FROM python:3.9.0
 
-ADD requirements.txt .
+copy requirements.txt .
+RUN python -m pip install --upgrade pip
 RUN pip install -r requirements.txt
+RUN pip freeze > requirements.txt
 
 RUN python -m spacy download en_core_web_sm
 

@@ -18,4 +18,8 @@ test: build
 	docker run $(IMAGE_NAME) bash -c "cd app/ && pytest"
 
 
-## missing targets: freeze, test
+.PHONY: freeze
+freeze:
+	cp requirements.dev.txt requirements.txt
+	docker build -t $(IMAGE_NAME) .
+	docker run --rm $(IMAGE_NAME) cat requirements.txt > requirements.txt
