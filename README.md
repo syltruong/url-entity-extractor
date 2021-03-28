@@ -3,6 +3,8 @@
 
 [![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run)
 
+Also available here: https://url-entity-extractor-m4kand2eyq-et.a.run.app/docs
+
 ## Endpoints
 
 ### POST `/extract`
