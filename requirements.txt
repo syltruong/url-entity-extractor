@@ -1,0 +1,8 @@
+requests
+spacy
+pysqlite3
+
+fastapi
+uvicorn[standard]
+
+pytest
