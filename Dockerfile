@@ -8,5 +8,5 @@ RUN pip freeze > requirements.txt
 RUN python -m spacy download en_core_web_sm
 
 COPY . app/
-ENV PORT=8000
-CMD cd app/ && uvicorn src.main:app --reload --host 0.0.0.0 --port 8000
+ENV PORT=8080
+CMD cd app/ && uvicorn src.main:app --reload --host 0.0.0.0 --port 8080
